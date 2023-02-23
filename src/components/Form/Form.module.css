@@ -1,0 +1,21 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 20px 20px;
+}
+
+.form input {
+    padding: 5px;
+}
+.form label {
+    text-align: left;
+    padding-bottom: 3px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.actionForm {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}

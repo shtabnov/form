@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Form from "./components/Form/Form";
+import UserList from "./components/UserList/UserList";
+import Modal from "./components/Modal/Modal";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [modalActive, setModalActive] = useState(false);
+    const [users, setUsers] = useState([]);
+    const addNewUser = ({ user }) => {
+        setUsers([...users, user]);
+    };
+
+    return (
+        <div className="App">
+            <h1>One More Form from React</h1>
+            <button className="open" onClick={() => setModalActive(true)}>
+                Add User
+            </button>
+            <UserList />
+            <Modal active={modalActive} setActive={setModalActive}>
+                <Form users={users} addUser={addNewUser} />
+            </Modal>
+        </div>
+    );
 }
 
 export default App;
