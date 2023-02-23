@@ -1,7 +1,8 @@
 import { useState } from "react";
+import InputForm from "./InputForm";
 import styles from "./Form.module.css";
 
-function Form({ addUser, setActive }) {
+function Form({ addUser, setActive, users }) {
     const [data, setData] = useState({
         firstName: "",
         lastName: "",
@@ -11,7 +12,6 @@ function Form({ addUser, setActive }) {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log("sub");
         addUser(data);
         setData({
             firstName: "",
@@ -28,42 +28,35 @@ function Form({ addUser, setActive }) {
 
     return (
         <form className={styles.form} onSubmit={handleFormSubmit}>
-            <label>
-                First Name
-                <input
-                    type="text"
-                    placeholder="First Name"
-                    value={data.firstName}
-                    onChange={(e) => handleInputChange(e, "firstName")}
-                />
-            </label>
-            <label>
-                Last Name
-                <input
-                    type="text"
-                    placeholder="Last Name"
-                    value={data.lastName}
-                    onChange={(e) => handleInputChange(e, "lastName")}
-                />
-            </label>
-            <label>
-                Email
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={data.email}
-                    onChange={(e) => handleInputChange(e, "email")}
-                />
-            </label>
-            <label>
-                Phone
-                <input
-                    type="tel"
-                    placeholder="Phone"
-                    value={data.phone}
-                    onChange={(e) => handleInputChange(e, "phone")}
-                />
-            </label>
+            <InputForm
+                name="First Name"
+                type="text"
+                placeholder="First Name"
+                value={data.firstName}
+                onChange={(e) => handleInputChange(e, "firstName")}
+            />
+
+            <InputForm
+                name="Last Name"
+                type="text"
+                placeholder="Last Name"
+                value={data.lastName}
+                onChange={(e) => handleInputChange(e, "lastName")}
+            />
+            <InputForm
+                name="Email"
+                type="email"
+                placeholder="Email"
+                value={data.email}
+                onChange={(e) => handleInputChange(e, "email")}
+            />
+            <InputForm
+                name="Phone"
+                type="tel"
+                placeholder="Phone"
+                value={data.phone}
+                onChange={(e) => handleInputChange(e, "phone")}
+            />
             <div className={styles.actionForm}>
                 <button
                     type="reset"

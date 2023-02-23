@@ -1,6 +1,7 @@
 import styles from "./UserList.module.css";
+import UserItem from "./UserItem";
 
-function UserList({ users }) {
+function UserList({ users, delUser, editUser }) {
     return (
         <div className={styles.userList}>
             <p>user list</p>
@@ -13,21 +14,15 @@ function UserList({ users }) {
                         <td>Action User</td>
                     </tr>
 
-                    {/* userItem */}
-
-                    {users.map((el) => {
+                    {users.map((user) => {
                         return (
-                            <tr>
-                                <td>{el.firstName}</td>
-                                <td>{el.email}</td>
-                                <td>{el.phone}</td>
-                                <td>
-                                    <div className={styles.listAction}>
-                                        <button>Edit</button>
-                                        <button>Delete</button>
-                                    </div>
-                                </td>
-                            </tr>
+                            <UserItem
+                                key={user.id}
+                                {...user}
+                                styles={styles.listAction}
+                                delUser={delUser}
+                                editUser={editUser}
+                            />
                         );
                     })}
                 </tbody>
