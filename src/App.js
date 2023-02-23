@@ -18,7 +18,7 @@ function App() {
             <button className="open" onClick={() => setModalActive(true)}>
                 Add User
             </button>
-            <UserList />
+            <UserList users={users} />
             <Modal active={modalActive} setActive={setModalActive}>
                 <Form addUser={addNewUser} setActive={setModalActive} />
             </Modal>

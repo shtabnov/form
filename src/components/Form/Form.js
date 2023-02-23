@@ -11,6 +11,7 @@ function Form({ addUser, setActive }) {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        console.log("sub");
         addUser(data);
         setData({
             firstName: "",
@@ -65,6 +66,7 @@ function Form({ addUser, setActive }) {
             </label>
             <div className={styles.actionForm}>
                 <button
+                    type="reset"
                     onClick={() => {
                         setActive(false);
                     }}
