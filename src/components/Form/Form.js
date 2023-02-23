@@ -1,63 +1,76 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
 
-function Form({ users, addNewUser }) {
-    const [data, setData] = useState({});
+function Form({ addUser, setActive }) {
+    const [data, setData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+    });
 
-    const formHandle = (event) => {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
+        addUser(data);
+        setData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+        });
+        setActive(false);
     };
 
-    const labelHandle = (value) => {
-        setData({
-            ...data,
-        });
+    const handleInputChange = (text, name) => {
+        setData({ ...data, [name]: text.target.value });
     };
 
     return (
-        <form className={styles.form} onSubmit={formHandle}>
+        <form className={styles.form} onSubmit={handleFormSubmit}>
             <label>
                 First Name
                 <input
                     type="text"
-                    name="firstName"
                     placeholder="First Name"
                     value={data.firstName}
-                    onChange={labelHandle}
+                    onChange={(e) => handleInputChange(e, "firstName")}
                 />
             </label>
             <label>
                 Last Name
                 <input
                     type="text"
-                    name="lastName"
                     placeholder="Last Name"
                     value={data.lastName}
-                    onChange={labelHandle}
+                    onChange={(e) => handleInputChange(e, "lastName")}
                 />
             </label>
             <label>
                 Email
                 <input
                     type="email"
-                    name="Email"
                     placeholder="Email"
                     value={data.email}
-                    onChange={labelHandle}
+                    onChange={(e) => handleInputChange(e, "email")}
                 />
             </label>
             <label>
                 Phone
                 <input
                     type="tel"
-                    name="Phone"
                     placeholder="Phone"
                     value={data.phone}
-                    onChange={labelHandle}
+                    onChange={(e) => handleInputChange(e, "phone")}
                 />
             </label>
             <div className={styles.actionForm}>
-                <button>Cancil</button>
+                <button
+                    onClick={() => {
+                        setActive(false);
+                    }}
+                >
+                    Cancil
+                </button>
                 <button type="submit">Submit</button>
             </div>
         </form>

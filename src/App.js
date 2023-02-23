@@ -7,7 +7,8 @@ import { useState } from "react";
 function App() {
     const [modalActive, setModalActive] = useState(false);
     const [users, setUsers] = useState([]);
-    const addNewUser = ({ user }) => {
+    const addNewUser = (user) => {
+        console.log(user);
         setUsers([...users, user]);
     };
 
@@ -19,7 +20,7 @@ function App() {
             </button>
             <UserList />
             <Modal active={modalActive} setActive={setModalActive}>
-                <Form users={users} addUser={addNewUser} />
+                <Form addUser={addNewUser} setActive={setModalActive} />
             </Modal>
         </div>
     );

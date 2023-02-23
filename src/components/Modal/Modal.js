@@ -4,7 +4,9 @@ function Modal({ active, setActive, children }) {
     return (
         <div
             className={`${styles.modal} ${active ? styles.active : ""}`}
-            onClick={() => setActive(false)}
+            onClick={() => {
+                setActive(false);
+            }}
         >
             <div
                 className={`${styles.modal__content} ${
