@@ -21,8 +21,11 @@ function App() {
         );
     };
 
-    const editUser = (id) => {
-        console.log(id);
+    const redactionUser = (editUser) => {
+        console.log(editUser);
+        users.forEach((user) => {
+            return user.id === editUser.id ? (user = editUser) : user;
+        });
     };
 
     return (
@@ -31,13 +34,13 @@ function App() {
             <button className="open" onClick={() => setModalActive(true)}>
                 Add User
             </button>
-            <UserList users={users} delUser={delUser} editUser={editUser} />
+            <UserList
+                users={users}
+                delUser={delUser}
+                redactionUser={redactionUser}
+            />
             <Modal active={modalActive} setActive={setModalActive}>
-                <Form
-                    addUser={addNewUser}
-                    setActive={setModalActive}
-                    action="submit"
-                />
+                <Form addUser={addNewUser} setActive={setModalActive} />
             </Modal>
         </div>
     );

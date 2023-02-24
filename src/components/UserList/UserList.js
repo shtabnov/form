@@ -2,10 +2,18 @@ import { useState } from "react";
 import styles from "./UserList.module.css";
 import UserItem from "./UserItem";
 import Modal from "../Modal/Modal";
-import Form from "../Form/Form";
+import EditForm from "../Form/EditForm";
 
-function UserList({ users, delUser, editUser }) {
+function UserList({ users, delUser, redactionUser }) {
     const [modalActiveUL, setModalActiveUL] = useState(false);
+    const [editUser, setEditUser] = useState(null);
+
+    const fillFields = (id) => {
+        users.forEach((user) => {
+            console.log(id + " fill");
+            return user.id === id ? setEditUser({ ...user }) : false;
+        });
+    };
 
     return (
         <div className={styles.userList}>
@@ -27,16 +35,17 @@ function UserList({ users, delUser, editUser }) {
                                 styles={styles.listAction}
                                 delUser={delUser}
                                 setActive={setModalActiveUL}
+                                fillFields={fillFields}
                             />
                         );
                     })}
                 </tbody>
             </table>
             <Modal active={modalActiveUL} setActive={setModalActiveUL}>
-                <Form
+                <EditForm
                     setActive={setModalActiveUL}
-                    action="edit"
                     editUser={editUser}
+                    redactionUser={redactionUser}
                 />
             </Modal>
         </div>

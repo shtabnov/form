@@ -6,8 +6,8 @@ function UserItem({
     phone,
     styles,
     delUser,
-    editUser,
     setActive,
+    fillFields,
 }) {
     return (
         <tr>
@@ -18,8 +18,8 @@ function UserItem({
                 <div className={styles}>
                     <button
                         onClick={() => {
+                            fillFields(id);
                             setActive(true);
-                            console.log(id);
                         }}
                     >
                         Edit
