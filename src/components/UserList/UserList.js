@@ -1,7 +1,12 @@
+import { useState } from "react";
 import styles from "./UserList.module.css";
 import UserItem from "./UserItem";
+import Modal from "../Modal/Modal";
+import Form from "../Form/Form";
 
 function UserList({ users, delUser, editUser }) {
+    const [modalActiveUL, setModalActiveUL] = useState(false);
+
     return (
         <div className={styles.userList}>
             <p>user list</p>
@@ -21,12 +26,19 @@ function UserList({ users, delUser, editUser }) {
                                 {...user}
                                 styles={styles.listAction}
                                 delUser={delUser}
-                                editUser={editUser}
+                                setActive={setModalActiveUL}
                             />
                         );
                     })}
                 </tbody>
             </table>
+            <Modal active={modalActiveUL} setActive={setModalActiveUL}>
+                <Form
+                    setActive={setModalActiveUL}
+                    action="edit"
+                    editUser={editUser}
+                />
+            </Modal>
         </div>
     );
 }

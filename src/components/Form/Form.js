@@ -2,7 +2,7 @@ import { useState } from "react";
 import InputForm from "./InputForm";
 import styles from "./Form.module.css";
 
-function Form({ addUser, setActive, users }) {
+function Form({ addUser, setActive, users, action, editUser }) {
     const [data, setData] = useState({
         firstName: "",
         lastName: "",
@@ -66,7 +66,13 @@ function Form({ addUser, setActive, users }) {
                 >
                     Cancil
                 </button>
-                <button type="submit">Submit</button>
+                {action === "submit" ? (
+                    <button type="submit">Submit</button>
+                ) : (
+                    <button type="button" onClick={editUser}>
+                        Save Edit
+                    </button>
+                )}
             </div>
         </form>
     );

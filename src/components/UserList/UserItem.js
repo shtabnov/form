@@ -7,6 +7,7 @@ function UserItem({
     styles,
     delUser,
     editUser,
+    setActive,
 }) {
     return (
         <tr>
@@ -17,7 +18,8 @@ function UserItem({
                 <div className={styles}>
                     <button
                         onClick={() => {
-                            editUser(id);
+                            setActive(true);
+                            console.log(id);
                         }}
                     >
                         Edit

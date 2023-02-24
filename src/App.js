@@ -22,7 +22,6 @@ function App() {
     };
 
     const editUser = (id) => {
-        setModalActive(true);
         console.log(id);
     };
 
@@ -34,7 +33,11 @@ function App() {
             </button>
             <UserList users={users} delUser={delUser} editUser={editUser} />
             <Modal active={modalActive} setActive={setModalActive}>
-                <Form addUser={addNewUser} setActive={setModalActive} />
+                <Form
+                    addUser={addNewUser}
+                    setActive={setModalActive}
+                    action="submit"
+                />
             </Modal>
         </div>
     );
