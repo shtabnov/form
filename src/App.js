@@ -34,11 +34,7 @@ function App() {
             </button>
             <UserList users={users} delUser={delUser} editUser={editUser} />
             <Modal active={modalActive} setActive={setModalActive}>
-                <Form
-                    addUser={addNewUser}
-                    setActive={setModalActive}
-                    users={users}
-                />
+                <Form addUser={addNewUser} setActive={setModalActive} />
             </Modal>
         </div>
     );
