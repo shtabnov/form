@@ -38,6 +38,6 @@
     transform: translate(0.2rem, -1.7rem);
     font-size: 0.7rem;
 }
-.inputBox input:required:invalid {
+/* .inputBox input:required:invalid {
     border: 1px solid red;
-}
+} */
