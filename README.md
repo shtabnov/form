@@ -1,3 +1,3 @@
-##git hub pages
+## git hub pages
 
-[link] in github pages (https://shtabnov.github.io/form/)
+[link](https://shtabnov.github.io/form/) in github pages 
