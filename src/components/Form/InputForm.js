@@ -1,8 +1,10 @@
+import styles from "./InputForm.module.css";
 function InputForm({ type, placeholder, value, name, onChange }) {
     return (
         <label>
-            {name}
+            {name} <br />
             <input
+                className={styles.inputForm}
                 type={type}
                 placeholder={placeholder}
                 value={value}

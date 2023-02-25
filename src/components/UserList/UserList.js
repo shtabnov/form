@@ -22,7 +22,7 @@ function UserList({ users, delUser, redactionUser }) {
 
     return (
         <div className={styles.userList}>
-            <p>user list</p>
+            <p>User list</p>
             <table>
                 <tbody>
                     <tr>
