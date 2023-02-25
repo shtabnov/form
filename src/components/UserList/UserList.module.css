@@ -2,6 +2,12 @@
     margin: 0 auto;
     width: 70vw;
 }
+@media (orientation: portrait) {
+    .userList {
+        margin: 0 auto;
+        width: 100vw;
+    }
+}
 
 .userList table {
     width: 100%;
@@ -15,7 +21,7 @@
     border: none;
     padding: 10px 15px;
     background: #d8d8d8;
-    font-size: 14px;
+    font-size: 1rem;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
@@ -24,7 +30,7 @@
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     padding: 10px 15px;
-    font-size: 14px;
+    font-size: 1rem;
     vertical-align: top;
 }
 .userList thead tr th:first-child,
