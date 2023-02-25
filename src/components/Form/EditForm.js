@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputForm from "./InputForm";
 import styles from "./Form.module.css";
 
 function EditForm({ setActive, editUser, redactionUser }) {
-    console.log(editUser);
     const [data, setData] = useState({
         firstName: "",
         lastName: "",
         email: "",
         phone: "",
     });
+
+    useEffect(() => {
+        setData(editUser);
+    }, [editUser]);
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -72,7 +75,6 @@ function EditForm({ setActive, editUser, redactionUser }) {
                 <button
                     type="submit"
                     onClick={() => {
-                        console.log("save");
                         setActive(false);
                     }}
                 >

@@ -22,10 +22,11 @@ function App() {
     };
 
     const redactionUser = (editUser) => {
-        console.log(editUser);
-        users.forEach((user) => {
-            return user.id === editUser.id ? (user = editUser) : user;
-        });
+        return setUsers(
+            users.map((user) => {
+                return user.id === editUser.id ? editUser : user;
+            })
+        );
     };
 
     return (

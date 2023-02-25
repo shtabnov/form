@@ -6,12 +6,17 @@ import EditForm from "../Form/EditForm";
 
 function UserList({ users, delUser, redactionUser }) {
     const [modalActiveUL, setModalActiveUL] = useState(false);
-    const [editUser, setEditUser] = useState(null);
+    const [editUser, setEditUser] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        id: "",
+    });
 
     const fillFields = (id) => {
         users.forEach((user) => {
-            console.log(id + " fill");
-            return user.id === id ? setEditUser({ ...user }) : false;
+            return user.id === id ? setEditUser(user) : false;
         });
     };
 
@@ -26,7 +31,6 @@ function UserList({ users, delUser, redactionUser }) {
                         <td>Phone number</td>
                         <td>Action User</td>
                     </tr>
-
                     {users.map((user) => {
                         return (
                             <UserItem
