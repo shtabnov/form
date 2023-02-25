@@ -27,46 +27,49 @@ function Form({ addUser, setActive }) {
     };
 
     return (
-        <form className={styles.form} onSubmit={handleFormSubmit}>
-            <InputForm
-                name="First Name"
-                type="text"
-                value={data.firstName}
-                onChange={(e) => handleInputChange(e, "firstName")}
-            />
+        <>
+            <h2>Add User</h2>
+            <form className={styles.form} onSubmit={handleFormSubmit}>
+                <InputForm
+                    name="First Name"
+                    type="text"
+                    value={data.firstName}
+                    onChange={(e) => handleInputChange(e, "firstName")}
+                />
 
-            <InputForm
-                name="Last Name"
-                type="text"
-                value={data.lastName}
-                onChange={(e) => handleInputChange(e, "lastName")}
-            />
-            <InputForm
-                name="Email"
-                type="email"
-                value={data.email}
-                onChange={(e) => handleInputChange(e, "email")}
-            />
-            <InputForm
-                name="Phone"
-                type="tel"
-                value={data.phone}
-                onChange={(e) => handleInputChange(e, "phone")}
-            />
+                <InputForm
+                    name="Last Name"
+                    type="text"
+                    value={data.lastName}
+                    onChange={(e) => handleInputChange(e, "lastName")}
+                />
+                <InputForm
+                    name="Email"
+                    type="email"
+                    value={data.email}
+                    onChange={(e) => handleInputChange(e, "email")}
+                />
+                <InputForm
+                    name="Phone"
+                    type="tel"
+                    value={data.phone}
+                    onChange={(e) => handleInputChange(e, "phone")}
+                />
 
-            <div className={styles.actionForm}>
-                <button
-                    type="reset"
-                    onClick={() => {
-                        setActive(false);
-                    }}
-                >
-                    Cancil
-                </button>
+                <div className={styles.actionForm}>
+                    <button
+                        type="reset"
+                        onClick={() => {
+                            setActive(false);
+                        }}
+                    >
+                        Cancil
+                    </button>
 
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </>
     );
 }
 

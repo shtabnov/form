@@ -14,6 +14,16 @@ function UserList({ users, delUser, redactionUser }) {
         id: "",
     });
 
+    const resetFields = () => {
+        setEditUser({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            id: "",
+        });
+    };
+
     const fillFields = (id) => {
         users.forEach((user) => {
             return user.id === id ? setEditUser(user) : false;
@@ -23,14 +33,17 @@ function UserList({ users, delUser, redactionUser }) {
     return (
         <div className={styles.userList}>
             <p>User list</p>
+
             <table>
-                <tbody>
+                <thead>
                     <tr>
-                        <td>User Name</td>
-                        <td>Email</td>
-                        <td>Phone number</td>
-                        <td>Action User</td>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Phone number</th>
+                        <th>Action User</th>
                     </tr>
+                </thead>
+                <tbody>
                     {users.map((user) => {
                         return (
                             <UserItem
@@ -45,11 +58,13 @@ function UserList({ users, delUser, redactionUser }) {
                     })}
                 </tbody>
             </table>
+
             <Modal active={modalActiveUL} setActive={setModalActiveUL}>
                 <EditForm
                     setActive={setModalActiveUL}
                     editUser={editUser}
                     redactionUser={redactionUser}
+                    resetFields={resetFields}
                 />
             </Modal>
         </div>
