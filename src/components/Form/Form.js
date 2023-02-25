@@ -31,7 +31,6 @@ function Form({ addUser, setActive }) {
             <InputForm
                 name="First Name"
                 type="text"
-                placeholder="First Name"
                 value={data.firstName}
                 onChange={(e) => handleInputChange(e, "firstName")}
             />
@@ -39,21 +38,18 @@ function Form({ addUser, setActive }) {
             <InputForm
                 name="Last Name"
                 type="text"
-                placeholder="Last Name"
                 value={data.lastName}
                 onChange={(e) => handleInputChange(e, "lastName")}
             />
             <InputForm
                 name="Email"
                 type="email"
-                placeholder="Email"
                 value={data.email}
                 onChange={(e) => handleInputChange(e, "email")}
             />
             <InputForm
                 name="Phone"
                 type="tel"
-                placeholder="Phone"
                 value={data.phone}
                 onChange={(e) => handleInputChange(e, "phone")}
             />
