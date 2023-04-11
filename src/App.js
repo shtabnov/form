@@ -6,8 +6,38 @@ import UserList from "./components/UserList/UserList";
 import Modal from "./components/Modal/Modal";
 
 function App() {
+    const initialState = [
+        {
+            id: uuidv4(),
+            firstName: "Andrey",
+            lastName: "Shtabnov",
+            email: "second88@bk.ru",
+            phone: "89068885155",
+        },
+        {
+            id: uuidv4(),
+            firstName: "Yana",
+            lastName: "Shtabnova",
+            email: "yanotik23@mail.ru",
+            phone: "89638816267",
+        },
+        {
+            id: uuidv4(),
+            firstName: "Eseniya",
+            lastName: "Shtabnova",
+            email: "shtabnova.ea@gmail.com",
+            phone: "89655794970",
+        },
+        {
+            id: uuidv4(),
+            firstName: "Stphany",
+            lastName: "Shtabnova",
+            email: "shtabnova.sa@gmail.com",
+            phone: "89655794874",
+        },
+    ];
     const [modalActive, setModalActive] = useState(false);
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState(initialState);
     const addNewUser = (user) => {
         user.id = uuidv4();
         setUsers([...users, user]);
