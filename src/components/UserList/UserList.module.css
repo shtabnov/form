@@ -52,3 +52,34 @@
     display: flex;
     justify-content: space-around;
 }
+
+@media (max-width: 650px) {
+    .userList thead th {
+        display: none;
+    }
+
+    .userList tbody td {
+        display: grid;
+        grid-template-columns: 12ch auto;
+        padding: 5px 10px;
+    }
+    .userList tbody td:first-child {
+        padding-top: 15px;
+    }
+    .userList tbody td:last-child {
+        padding-bottom: 15px;
+    }
+    /* :not(:last-child) */
+    .userList tbody td::before {
+        content: attr(data-cell) ": ";
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+    .listAction {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .listAction button {
+        margin-right: 2rem;
+    }
+}

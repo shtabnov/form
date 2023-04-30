@@ -38,6 +38,7 @@ function App() {
     ];
     const [modalActive, setModalActive] = useState(false);
     const [users, setUsers] = useState(initialState);
+
     const addNewUser = (user) => {
         user.id = uuidv4();
         setUsers([...users, user]);
