@@ -69,16 +69,26 @@
     .userList tbody td:last-child {
         padding-bottom: 15px;
     }
-    /* :not(:last-child) */
+
+    .userList tbody tr td:first-child {
+        border-left: 1px solid #ddd;
+    }
+
+    .userList tbody tr td:last-child {
+        border-right: 1px solid #ddd;
+    }
+
     .userList tbody td::before {
         content: attr(data-cell) ": ";
         font-weight: bold;
         text-transform: capitalize;
     }
+
     .listAction {
         display: flex;
         justify-content: flex-start;
     }
+
     .listAction button {
         margin-right: 2rem;
     }
