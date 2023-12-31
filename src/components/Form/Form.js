@@ -63,7 +63,7 @@ function Form({ addUser, setActive }) {
                             setActive(false);
                         }}
                     >
-                        Cancil
+                        Cancel
                     </button>
 
                     <button type="submit">Submit</button>

@@ -11,7 +11,7 @@ function UserItem({
 }) {
     return (
         <tr>
-            <td data-cell="name">{`${firstName} ${lastName.substr(0, 1)}`}</td>
+            <td data-cell="name">{`${firstName} ${lastName.substr(0, 2)}.`}</td>
             <td data-cell="email">{email}</td>
             <td data-cell="phone">{phone}</td>
             <td data-cell="action">

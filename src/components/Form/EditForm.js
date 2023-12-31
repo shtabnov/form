@@ -71,7 +71,7 @@ function EditForm({ setActive, editUser, redactionUser, resetFields }) {
                             setActive(false);
                         }}
                     >
-                        Cancil
+                        Cancel
                     </button>
 
                     <button
